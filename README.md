@@ -10,13 +10,6 @@ a traditional JPEG decoder (Imagemagick 7.0.8-59) | Knusperli
 ![baboon JPEG, zoomed][baboon-jpeg-crop]          | ![baboon Knusperli, zoomed][baboon-knus-crop]
 ![baboon JPEG][baboon-jpeg]                       | ![baboon Knusperli][baboon-knus]
 
-## Building
-
-Knusperli builds with [Bazel][bazel]:
-
-    CC=gcc bazel build :knusperli
-    bazel-bin/knusperli input.jpg output.png
-
 ## Details
 
 A JPEG encoder quantizes DCT coefficients by rounding coefficients to the
@@ -31,7 +24,6 @@ have rounded to the same values that are stored in the JPEG image.
 
 This is not an officially supported Google product.
 
-[bazel]: https://bazel.build/
 [baboon-jpeg-crop]: doc/img/baboon.q50.jpeg.crop.png
 [baboon-knus-crop]: doc/img/baboon.q50.knusperli.crop.png
 [baboon-jpeg]: doc/img/baboon.q50.jpeg.png

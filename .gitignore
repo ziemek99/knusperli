@@ -1,2 +1,1 @@
-# Bazel build directories
-/bazel*
+/target

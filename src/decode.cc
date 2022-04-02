@@ -20,13 +20,14 @@
 #include "jpeg_data.h"
 #include "jpeg_data_decoder.h"
 #include "jpeg_data_reader.h"
+#include "knusperli.hh"
 
 using knusperli::DecodeJpegToRGB;
 using knusperli::JPEGData;
 using knusperli::JPEG_READ_ALL;
 using knusperli::ReadJpeg;
 
-int main(int argc, char** argv) {
+int main_cc(int argc, char** argv) {
   if (argc != 3) {
     printf("Usage: knusperli <input.jpg> <output.png>\n");
     return 1;
@@ -60,4 +61,6 @@ int main(int argc, char** argv) {
     printf("Failed to write png.\n");
     return 1;
   }
+
+  return 0;
 }
