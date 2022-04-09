@@ -28,11 +28,6 @@ using knusperli::JPEG_READ_ALL;
 using knusperli::ReadJpeg;
 
 int main_cc(int argc, char** argv) {
-  if (argc != 3) {
-    printf("Usage: knusperli <input.jpg> <output.png>\n");
-    return 1;
-  }
-
   std::ifstream in_file(argv[1]);
   if (!in_file.good()) {
     printf("Failed to open input file.\n");
