@@ -20,7 +20,7 @@
 #include "jpeg_data.h"
 #include "jpeg_data_decoder.h"
 #include "jpeg_data_reader.h"
-#include "knusperli.hh"
+#include "bindings.hh"
 
 using knusperli::DecodeJpegToRGB;
 using knusperli::JPEGData;

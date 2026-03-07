@@ -1,30 +1,20 @@
 use std::env::args;
-use std::ffi::CString;
-use std::os::raw::{c_char, c_int};
+use std::fs::File;
+use std::io::Write;
 use std::process::exit;
 
-include!("bindings.rs");
+//include!("bindings.rs");
 
-fn main() {
+fn main() -> Result<(), std::io::Error> {
 	if args().len() != 3 {
 		println!("Usage: knusperli <input.jpg> <output.png>");
 		exit(1);
 	}
 
-	// Shamelessly stolen from: https://stackoverflow.com/questions/34379641
+	let args: Vec<String> = args().collect();
 
-	// create a vector of zero terminated strings
-	let args = args()
-		.map(|arg| CString::new(arg).unwrap())
-		.collect::<Vec<CString>>();
-	// convert the strings to raw pointers
-	let c_args = args
-		.iter()
-		.map(|arg| arg.as_ptr())
-		.collect::<Vec<*const c_char>>();
-
-	unsafe {
-		// pass the pointer of the vector's internal buffer to a C function
-		exit(main_cc(c_args.len() as c_int, c_args.as_ptr()) as i32);
-	}
+	let _in_file = File::open(&args[1])?;
+	let mut out_file = File::create(&args[2])?;
+	out_file.write_all(b"Test.\nThe quick brown fox jumps over a lazy dog.")?;
+	Ok(())
 }
