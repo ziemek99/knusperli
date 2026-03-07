@@ -1,2 +1,4 @@
 # Bazel build directories
 /bazel*
+# Bazel lockfile
+/MODULE.bazel.lock
